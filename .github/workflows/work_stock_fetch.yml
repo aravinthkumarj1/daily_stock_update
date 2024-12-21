@@ -44,12 +44,7 @@ jobs:
     - name: Skip Saturdays and Sundays
       id: check_day
       run: |
-        DAY_OF_WEEK=$(date +%u) # 1=Monday, 7=Sunday
-        if [[ "$DAY_OF_WEEK" -eq 6 || "$DAY_OF_WEEK" -eq 7 ]]; then
           echo "continue=true" >> $GITHUB_ENV
-        else
-          echo "continue=true" >> $GITHUB_ENV
-        fi
 
     # Step 7: Run the BSE stock data update script
     - name: Run BSE stock data BigQuery update script
