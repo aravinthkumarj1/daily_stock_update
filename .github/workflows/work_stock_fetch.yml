@@ -28,11 +28,11 @@ jobs:
         pip install -r requirements.txt
         
     # Step 4: Set up Google Sheets Authentication
-    - name: Set Up Google Sheets Authentication
-      env:
-        SERVICE_ACCOUNT_JSON: ${{ secrets.SERVICE_ACCOUNT_JSON }}
-      run: |
-        echo "$SERVICE_ACCOUNT_JSON" > service_account.json
+    #- name: Set Up Google Sheets Authentication
+     # env:
+      #  SERVICE_ACCOUNT_JSON: ${{ secrets.SERVICE_ACCOUNT_JSON }}
+      #run: |
+       # echo "$SERVICE_ACCOUNT_JSON" > service_account.json
 
     # Step 5: Configure Git
     - name: Set up Git
