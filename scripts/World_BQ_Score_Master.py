@@ -2,7 +2,7 @@ import yfinance as yf
 from datetime import datetime, timedelta
 import gspread
 from google.oauth2.service_account import Credentials
-from google.cloud import bigquery
+#from google.cloud import bigquery
 from google.api_core.exceptions import NotFound
 from openpyxl import Workbook, load_workbook
 import csv
@@ -817,13 +817,13 @@ BQ_DATASET = "World_stock_score_master_test"  # Replace with your dataset name
 BQ_TABLE = f"{PROJECT_ID}.{BQ_DATASET}.World_stock_master_1"  # Fully-qualified table name
 
 # BigQuery authentication
-bq_client = bigquery.Client.from_service_account_json(SERVICE_ACCOUNT_FILE)
+#bq_client = bigquery.Client.from_service_account_json(SERVICE_ACCOUNT_FILE)
 
 # Ensure dataset and table exist in BigQuery
-ensure_dataset_exists()
-ensure_table_exists()
+#ensure_dataset_exists()
+#ensure_table_exists()
 
 # Load the data into BigQuery from the CSV file
-load_data_to_bigquery()
+#load_data_to_bigquery()
 
 log_message("World stock fetch Script execution completed.")
