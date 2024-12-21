@@ -84,3 +84,24 @@ jobs:
 
         git commit -m "$(date) World stock update"
         git push origin main --force
+
+    # Step 9: Authenticate and Push Changes own
+    - name: Authenticate and Push Changes
+      if: ${{ env.continue == 'true' }}
+      env:
+        GH_PAT: ${{ secrets.GH_PAT }}
+      run: |
+        #git remote set-url origin https://x-access-token:${GH_PAT}@github.com/greenteamz/Daily_NSE_Stock_Fetch.git
+        git remote set-url origin https://x-access-token:${GH_PAT}@github.com/aravinthkumarj1/world_stock.git
+        
+        # Add files that may go beyond 100MB and push them
+        git config --global lfs.required true  # Git LFS (Large File Storage) configuration
+        
+        git status
+        git add scripts/* .github/* WORLD/*
+        
+        # Check for large files and ensure they are handled with Git LFS
+        git lfs track "*.csv" "*.xls" "*.xlsx" "*.log"  # Adjust based on your file types
+
+        git commit -m "$(date) World stock update"
+        git push origin main --force
