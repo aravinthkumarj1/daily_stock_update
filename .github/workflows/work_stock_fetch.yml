@@ -26,13 +26,6 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-
-    # Install Git LFS
-    - name: Install Git LFS
-      run: |
-        sudo apt-get update
-        sudo apt-get install git-lfs
-        git lfs install
         
     # Step 4: Set up Google Sheets Authentication
     - name: Set Up Google Sheets Authentication
@@ -77,7 +70,7 @@ jobs:
         git config --global lfs.required true  # Git LFS (Large File Storage) configuration
         
         git status
-        git add scripts/* .github/* WORLD/*
+        git add scripts/*  WORLD/*
         
         # Check for large files and ensure they are handled with Git LFS
         git lfs track "*.csv" "*.xls" "*.xlsx" "*.log"  # Adjust based on your file types
@@ -98,7 +91,7 @@ jobs:
         git config --global lfs.required true  # Git LFS (Large File Storage) configuration
         
         git status
-        git add scripts/* .github/* WORLD/*
+        git add scripts/* WORLD/*
         
         # Check for large files and ensure they are handled with Git LFS
         git lfs track "*.csv" "*.xls" "*.xlsx" "*.log"  # Adjust based on your file types
